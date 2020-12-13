@@ -47,6 +47,99 @@ function createManager() {
         })
 }
 
+function nextStep() {
+    inquirer
+        .prompt ({
+            type: 'list',
+            message: "Which employee would you like to add next?",
+            choices: ["Manager", "Engineer", "Intern", "None, I'm done"],
+            name: 'addNext',
+        })
+        .then (response => {
+            if (response.addNext === "Manager") {
+                createManager()
+            } else if (response.addNext === "Engineer") {
+                createEngineer()
+            } else if (response.addNext === "Intern") {
+                createIntern()
+            } else {
+                createTeam()
+            }
+        
+        })
+}
+
+function createEngineer() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "engineerName",
+                message: "What is your engineer's name?"
+            },
+            {
+                type: "input",
+                name: "engineerId",
+                message: "What is your engineer's ID?"
+            },
+            {
+                type: "input",
+                name: "engineerEmail",
+                message: "What is your engineer's email address?"
+            },
+            {
+                type: "input",
+                name: "engineerGithub",
+                message: "What is your engineer's GitHub account?"
+            },
+        ])
+        .then(response => {
+            const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.engineerGithub)
+            employees.push(engineer)
+            nextStep()
+            
+        })
+
+    
+}
+
+function createIntern() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "internName",
+                message: "What is your intern's name?"
+            },
+            {
+                type: "input",
+                name: "internId",
+                message: "What is your intern's ID?"
+            },
+            {
+                type: "input",
+                name: "internEmail",
+                message: "What is your intern's email address?"
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "What is your intern's school?"
+            },
+        ])
+        .then(response => {
+            const intern = new Intern(response.internName, response.internId, response.internEmail, response.internSchool)
+            employees.push(intern)
+            nextStep()
+            
+        })
+}
+
+function createTeam() {
+    fs.writeFileSync(outputPath, render(employees), "utf-8");
+}
+
+
 
 
 
