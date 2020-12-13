@@ -13,9 +13,10 @@ To start the app, type node app.js in correct directory.
 ## Screen Shots
 <img src="https://github.com/triathao/Employee-Summary/blob/main/Assets/app_run.png?raw=true" alt="terminal command" width="400">
 
-<img src="https://github.com/triathao/Employee-Summary/blob/main/Assets/myteam.png?raw=true" alt="my team" width="400">
+<img src="https://github.com/triathao/Employee-Summary/blob/main/Assets/myteam.png?raw=true" alt="my team" width="600">
 
-
+<iframe width="420" height="345" src="https://www.youtube.com/watch?v=bw4tChigiGA">
+</iframe>
 
 ## Questions
 You can reach me via:
